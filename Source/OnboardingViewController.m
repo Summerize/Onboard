@@ -35,6 +35,12 @@ static NSString * const kSkipButtonText = @"Skip";
 
 @implementation OnboardingViewController
 
+- (void)setSwipingEnabled:(BOOL)swipingEnabled
+{
+    _swipingEnabled = swipingEnabled;
+    self.pageVC.dataSource = _swipingEnabled ? self : nil;
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
